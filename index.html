@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d3d67">
+<title>Regler – Flashback Forum</title>
+<style>
+:root{--blue:#0b3d68;--blue2:#1c4e7a;--link:#164d7a;--bg:#e9e8e4;--panel:#fff;--line:#d2d2d2;--muted:#6c6c6c;--text:#202020;--soft:#f5f5f3;--danger:#8b1e1e;--green:#2e6b3e;--shadow:0 1px 4px rgba(0,0,0,.10)}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:14px}button{font:inherit}
+a{color:var(--link)}
+.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #c8c8c8;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.topline{height:46px;background:var(--blue);display:flex;align-items:center;padding:0 max(14px,calc((100% - 1160px)/2));gap:16px;color:#fff}
+.logo{font-weight:700;letter-spacing:-.4px;font-size:21px;white-space:nowrap}.logo span{font-weight:400}
+.search{margin-left:auto;width:min(320px,40vw);height:28px;background:#fff;border:1px solid #aaa;border-radius:2px;color:#777;padding:5px 9px;font-size:12px}
+.navline{height:42px;display:flex;align-items:center;gap:20px;padding:0 max(14px,calc((100% - 1160px)/2));font-size:13px}.navline a{text-decoration:none;color:#333}.navline a.active{font-weight:700;color:var(--blue)}
+.shell{max-width:1160px;margin:0 auto;padding:18px 14px 70px}.crumb{font-size:12px;color:#777;margin:2px 0 12px}.crumb a{color:#555;text-decoration:none}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start}.content{min-width:0}.card{background:var(--panel);border:1px solid #cfcfcf;box-shadow:var(--shadow)}
+.pagehead{padding:16px 18px 14px;border-bottom:1px solid var(--line)}.pagehead h1{font-size:24px;margin:0 0 7px;font-weight:700}.pagehead p{margin:0;color:#555;line-height:1.45}
+.notice{margin:12px 18px 0;background:#f4f4f2;border:1px solid #d5d5d1;padding:11px 12px;line-height:1.45;color:#444;font-size:13px}
+.section{margin-top:14px}.section-title{background:#eee;border:1px solid #ccc;border-bottom:0;padding:9px 12px;font-size:15px;font-weight:700}.section-intro{background:#fff;border:1px solid #ccc;border-top:0;padding:10px 12px;color:#555;line-height:1.5}
+.rule{position:relative;background:#fff;border:1px solid #ccc;border-top:0;padding:14px 128px 14px 14px;min-height:88px;transition:background .15s,box-shadow .15s,transform .22s}.rule:first-of-type{border-top:1px solid #ccc}.rule:hover{background:#fcfcfb}.rule.focus{box-shadow:inset 3px 0 0 var(--blue)}
+.rule h2{font-size:15px;margin:0 0 7px;font-weight:700}.rule h2 a{color:var(--link);text-decoration:underline}.rule p{margin:0;line-height:1.55;color:#2b2b2b}.like-zone{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:98px;text-align:center}.like-btn{position:relative;min-width:82px;height:34px;border:1px solid #b9b9b9;border-radius:3px;background:#f7f7f7;color:#333;cursor:pointer;box-shadow:0 1px 1px rgba(0,0,0,.05);transition:all .12s}.like-btn:hover{background:#fff;border-color:#8e8e8e}.like-btn:active{transform:translateY(1px)}.like-btn .icon{font-size:15px;margin-right:5px;color:#555}.like-count{display:block;margin-top:4px;font-size:11px;color:#777}.like-btn.minus{color:var(--danger);border-color:#c9a4a4}.like-btn.double{font-weight:700}.floating{position:absolute;pointer-events:none;right:20px;top:7px;font-size:12px;font-weight:700;animation:float 900ms ease-out forwards}.floating.plus{color:var(--green)}.floating.minus{color:var(--danger)}
+@keyframes float{0%{opacity:0;transform:translateY(4px)}20%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+.moving{z-index:2}.moved-hint{font-size:10px;color:#888;margin-top:3px}
+.sidebar{position:sticky;top:102px}.side-card{background:#fff;border:1px solid #ccc;box-shadow:var(--shadow);margin-bottom:14px}.side-title{font-weight:700;background:#eee;border-bottom:1px solid #ccc;padding:9px 11px}.side-body{padding:11px}.side-body p{margin:0 0 9px;line-height:1.45;color:#555;font-size:12.5px}.stat{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eee;font-size:12px}.stat:last-child{border-bottom:0}.stat strong{font-size:13px}.reset{width:100%;border:1px solid #aaa;background:#f5f5f5;border-radius:3px;padding:7px 8px;cursor:pointer}.reset:hover{background:#fff}
+.tabs{display:flex;gap:0;border-bottom:1px solid #ccc;background:#f3f3f1}.tab{border:0;border-right:1px solid #d2d2d2;background:#f3f3f1;padding:9px 13px;cursor:pointer;font-size:12px;color:#555}.tab.active{background:#fff;color:var(--blue);font-weight:700;box-shadow:inset 0 2px 0 var(--blue)}
+.view{display:none}.view.active{display:block}.spotlight{padding:18px}.spotlight h2{font-size:19px;margin:0 0 8px}.spotlight .quote{border-left:3px solid var(--blue);padding:10px 12px;background:#f7f7f5;line-height:1.55}.spotlight .metric{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.metricbox{border:1px solid #ccc;background:#fff;padding:12px}.metricbox small{display:block;color:#777;margin-bottom:4px}.metricbox strong{font-size:24px}.eventlog{margin-top:14px;border-top:1px solid #ddd}.event{padding:8px 0;border-bottom:1px solid #eee;font-size:12px;color:#555}.event b{color:#333}
+.footer{max-width:1160px;margin:0 auto;padding:0 14px 28px;color:#777;font-size:11px}
+@media(max-width:820px){.search{display:none}.topline{padding:0 12px}.navline{padding:0 12px;gap:14px;overflow:auto}.shell{padding:12px 8px 50px}.layout{display:block}.sidebar{position:static;margin-top:14px}.pagehead{padding:14px}.notice{margin:10px 14px 0}.rule{padding:13px 108px 13px 12px}.like-zone{right:8px;width:84px}.like-btn{min-width:76px;height:32px}.pagehead h1{font-size:21px}.section-title{font-size:14px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topline"><div class="logo">Flashback<span> Forum</span></div><input class="search" aria-label="Sök" placeholder="Sök i forumet" disabled></div>
+  <nav class="navline"><a href="#" class="active">Regler</a><a href="#">Forum</a><a href="#">Nya inlägg</a><a href="#">Sök</a><a href="#">Medlemmar</a></nav>
+</header>
+<main class="shell">
+  <div class="crumb"><a href="#">Flashback Forum</a> &gt; Regler</div>
+  <div class="tabs" role="tablist" aria-label="Vy"><button class="tab active" data-view="rules">Regler</button><button class="tab" data-view="spotlight">Regel 0.06</button><button class="tab" data-view="activity">Aktivitet</button></div>
+  <div class="layout">
+    <section class="content">
+      <div id="rulesView" class="view active card">
+        <div class="pagehead"><h1>Regler</h1><p>Vänligen läs igenom reglerna innan du postar. Reglerna är indelade i netikett, regler och övrigt.</p></div>
+        <div class="notice">Den här sidan visar en prototyp med en gillafunktion. Gilla-markeringar är lokala för sessionen och sparas inte.</div>
+        <div id="rules"></div>
+      </div>
+      <div id="spotlightView" class="view card spotlight">
+        <h2>0.06. Moderatorsåtgärder</h2>
+        <div class="quote">Moderatorsåtgärder ska inte kommenteras i tråden. Vid frågor och synpunkter ska berörd moderator kontaktas via PM.</div>
+        <div class="metric"><div class="metricbox"><small>Gilla-markeringar</small><strong id="spotlightCount">0</strong></div><div class="metricbox"><small>Senaste tilldelning</small><strong id="spotlightDelta">—</strong></div></div>
+        <div class="eventlog" id="spotlightLog"><div class="event">Inga händelser ännu.</div></div>
+      </div>
+      <div id="activityView" class="view card spotlight">
+        <h2>Aktivitet</h2><p style="color:#555;line-height:1.5">Prototypens lokala aktivitet. Händelserna återställs när sidan laddas om.</p><div class="eventlog" id="activityLog"><div class="event">Inga gillamarkeringar ännu.</div></div>
+      </div>
+    </section>
+    <aside class="sidebar">
+      <div class="side-card"><div class="side-title">Gilla-markeringar</div><div class="side-body"><div class="stat"><span>Regler totalt</span><strong id="totalLikes">0</strong></div><div class="stat"><span>0.06 totalt</span><strong id="side060">0</strong></div><div class="stat"><span>Händelser</span><strong id="eventCount">0</strong></div></div></div>
+      <div class="side-card"><div class="side-title">Prototyp</div><div class="side-body"><p>Interaktionen är avsiktligt oförutsägbar. Knappen kan flytta sig, ge två gillamarkeringar eller i sällsynta fall minska antalet.</p><button class="reset" id="reset">Återställ gillamarkeringar</button></div></div>
+    </aside>
+  </div>
+</main>
+<div class="footer">Flashback Forum – prototyp. Innehållet på regelsidan bygger på den uppladdade regelsidan daterad 20 augusti 2026.</div>
+<script>
+const RULES = [{"id":"0.01","title":"0.01. Rubrik","text":"En rubrik ska vara saklig och neutral samt ge en rättvis och beskrivande bild av vad tråden handlar om. Är startinlägget huvudsakligen en fråga ska rubriken sluta med ett frågetecken."},{"id":"0.02","title":"0.02. Trådstart och forumval","text":"Var noga med att posta ditt inlägg i rätt underforum. Ditt inlägg ska ha anknytning till det ämne som forumet avser. Starta inte en ny tråd ifall det redan finns en lämplig tråd. En trådstart måste vara begriplig i sig själv och inte tvinga läsaren att hämta information från externa källor."},{"id":"0.03","title":"0.03. Trams och off-topic","text":"Inlägg som är off-topic eller trams kan raderas utan förvarning och motivering."},{"id":"0.04","title":"0.04. Korspostning","text":"Att korsposta, det vill säga att posta liknande inlägg i flera olika trådar eller skapa liknande trådar i flera forum, är förbjudet."},{"id":"0.05","title":"0.05. Avatar och signatur","text":"Om din avatar har ett motiv som kan uppfattas som olämpligt på en arbetsplats måste alternativet 'Min avatar är olämplig' bockas i under forumets inställningar. Avatarens eller signaturens innehåll får inte bryta mot någon av forumets övriga regler. Observera också att din avatar och signatur kan påverka tolkningen av övriga regler."},{"id":"0.06","title":"0.06. Moderatorsåtgärder","text":"Moderatorsåtgärder ska inte kommenteras i tråden. Vid frågor och synpunkter ska berörd moderator kontaktas via PM."},{"id":"0.07","title":"0.07. Spoilerfunktionen","text":"Vid postande av information som kan vara känslig för andra användare, såsom hur serier eller filmer slutar, ska spoilerfunktionen användas."},{"id":"0.09","title":"0.09. Falsk ryktesspridning","text":"Att sprida påhittade uppgifter om personer, företag eller organisationer med uppsåt att utsätta dessa för andras missaktning, eller att avsiktligen sprida förvrängd eller påhittad information med uppsåt att vilseleda, är förbjudet."},{"id":"0.10","title":"0.10. Personuppgifter","text":"Var försiktig med personuppgifter. Gör en balanserad avvägning där den enskildes intresse av en fredad privat sfär vägs mot grundläggande rättigheter som informations- och yttrandefrihet."},{"id":"0.12","title":"0.12. Olovlig identitetsanvändning","text":"Det är inte tillåtet att skapa eller förse konton med andras identitetsuppgifter i syfte att sabotera eller trakassera, alternativt att felaktigt utge sig för att vara admin eller moderator."},{"id":"0.13","title":"0.13. Textrobotar","text":"Det är endast tillåtet att citera texter skrivna av AI-verktyg eller motsvarande, om användaren är tydlig med att detta är ett citat, och det finns ett legitimt skäl till att posta ett citat istället för en egen beskrivning. Citatets längd får inte överstiga vad som motiveras av ändamålet. Inlägg som har karaktären av att vara skrivna av AI-verktyg kan raderas utan närmare motivering."},{"id":"1.01","title":"1.01. Reklam och annonsering","text":"Privata eller kommersiella annonser, så som köpes-, säljes- eller bytesannonser, inlägg innehållande reklam eller inlägg med annat innehåll som användaren tjänar pengar eller andra fördelar på, är förbjudna."},{"id":"1.02","title":"1.02. Upphovsrättsskyddat material","text":"Spridning eller publicering av upphovsrättsskyddat material utan upphovsmannens tillstånd är förbjudet."},{"id":"1.03","title":"1.03. Hets mot folkgrupp","text":"Det är förbjudet att hota eller uttrycka missaktning för en folkgrupp eller annan grupp av personer, med anspelning på ras, hudfärg, nationellt eller etniskt ursprung, trosbekännelse, sexuell läggning eller könsöverskridande identitet."},{"id":"1.04","title":"1.04. Uppvigling och hot","text":"Uppvigling och grövre hot är förbjudet. Det är också förbjudet att organisera brottslig verksamhet från forumet."},{"id":"1.05","title":"1.05. Barnpornografi","text":"Det är förbjudet att efterfråga eller sprida länkar till pornografiska bilder eller filmer med personer som är under 18 år."},{"id":"1.06","title":"1.06. Användarnas anonymitet","text":"Att på forumet (via inlägg eller i PM) eftersöka, posta, eller hota att posta, personuppgifter eller annan information som kan avslöja en annan användares identitet är förbjudet, med undantag för sådana uppgifter som användaren själv publicerat i forumet. Att sammankoppla användares alternativa konton eller konton på andra forum eller webbplatser är förbjudet."},{"id":"1.07","title":"1.07. Alternativa konton","text":"Missbruk av alternativa konton är förbjudet. Vid avstängning är det endast tillåtet att använda forumet för att diskutera sin avstängning med en moderator eller admin."},{"id":"1.08","title":"1.08. Personangrepp","text":"Grova personangrepp, trakasserier, hot eller förtäckta hot riktade mot andra användare är förbjudet."},{"id":"1.09","title":"1.09. Narkotikahandel","text":"All form av narkotikahandel (köpes, säljes, bytes, skänkes), även via PM, är förbjuden."},{"id":"1.11","title":"1.11. Spridning av datavirus och annan skadlig kod","text":"Att sprida länkar till datavirus eller annan skadlig kod är förbjudet om det inte görs uppenbart att länkarna är skadliga."},{"id":"1.12","title":"1.12. Integritetskänsliga uppgifter","text":"Det är förbjudet att posta vissa integritetskänsliga och sekretessbelagda uppgifter, vars informationsspridning saknar ett beaktansvärt allmänintresse."},{"id":"1.13","title":"1.13. Obestyrkt personuppgift","text":"Vid publicering av obestyrkta personuppgifter krävs särskild försiktighet. Om informationen är osäker och baseras på antaganden eller spekulationer måste detta tydligt framgå i texten."},{"id":"2.01","title":"2.01. Ohörsamhet","text":"Upprepade varningar som inte hörsammas resulterar i en avstängning."},{"id":"2.02","title":"2.02. Kvalitet framför kvantitet (KFK)","text":"Medlemmar som motarbetar den fria debatten i forumet, genom att systematiskt publicera inlägg med för låg kvalitet eller bristande debattunderlag, blir avstängda eller bannlysta."},{"id":"2.03","title":"2.03. Åldersgräns","text":"Åldersgränsen på Flashback Forum är 18 år. Underåriga användare kommer att stängas av."},{"id":"2.04","title":"2.04. Användarnamn","text":"Användarnamn som anses vara förväxlingsbara med någon annan medlem, moderator eller admin är förbjudna. Användarnamnet får inte bryta mot någon av forumets övriga regler. Observera också att ditt användarnamn kan påverka tolkningen av övriga regler."}];
+const state = {likes:{}, moderatorLikes:0, events:[]};
+const sections = [
+ {name:'Netikett', intro:'Den som bryter mot forumets netikett riskerar varning, och kan vid särskilt allvarlig förseelse bli avstängd från forumet.', ids:['0.01','0.02','0.03','0.04','0.05','0.06','0.07','0.09','0.10','0.12','0.13']},
+ {name:'Regler', intro:'Den som bryter mot forumets regler riskerar olika påföljder, beroende på allvarlighetsgraden. Dessa inkluderar varningar, tillfälliga avstängningar och i de mest allvarliga fallen, permanent bannlysning.', ids:['1.01','1.02','1.03','1.04','1.05','1.06','1.07','1.08','1.09','1.11','1.12','1.13']},
+ {name:'Övrigt', intro:'', ids:['2.01','2.02','2.03','2.04']}
+];
+const ruleById=Object.fromEntries(RULES.map(r=>[r.id,r]));
+const rulesEl=document.getElementById('rules');
+function escapeText(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+function render(){
+ rulesEl.innerHTML='';
+ for(const sec of sections){
+   const wrap=document.createElement('div'); wrap.className='section';
+   wrap.innerHTML='<div class="section-title">'+escapeText(sec.name)+'</div>'+(sec.intro?'<div class="section-intro">'+escapeText(sec.intro)+'</div>':'');
+   const list=document.createElement('div');
+   for(const id of sec.ids){
+     const r=ruleById[id]; const article=document.createElement('article'); article.className='rule'+(id==='0.06'?' focus':''); article.dataset.id=id;
+     const count=state.likes[id]||0;
+     article.innerHTML='<h2><a href="#rule-'+id+'" id="rule-'+id+'">'+escapeText(r.title)+'</a></h2><p>'+escapeText(r.text)+'</p><div class="like-zone"><button class="like-btn" data-like="'+id+'" aria-label="Gilla '+escapeText(r.title)+'"><span class="icon">👍</span><span class="label">Gilla</span></button><span class="like-count">'+count+' gilla-markeringar</span></div>';
+     list.appendChild(article);
+   }
+   wrap.appendChild(list); rulesEl.appendChild(wrap);
+ }
+ document.querySelectorAll('[data-like]').forEach(b=>b.addEventListener('click',()=>like(b.dataset.like,b)));
+ updateStats();
+}
+function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+function addEvent(text){
+ const time=new Date().toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit',second:'2-digit'}); state.events.unshift({time,text}); if(state.events.length>30) state.events.pop();
+ const html=state.events.map(e=>'<div class="event"><b>'+e.time+'</b> · '+escapeText(e.text)+'</div>').join('');
+ document.getElementById('activityLog').innerHTML=html||'<div class="event">Inga gillamarkeringar ännu.</div>';
+ document.getElementById('spotlightLog').innerHTML=html||'<div class="event">Inga händelser ännu.</div>';
+ document.getElementById('eventCount').textContent=state.events.length;
+}
+function floating(article,text,kind){const el=document.createElement('span');el.className='floating '+kind;el.textContent=text;article.appendChild(el);setTimeout(()=>el.remove(),950)}
+function like(id,button){
+ const article=button.closest('.rule');
+ // 1% minus, 14% double, 30% button moves, remainder ordinary like.
+ const roll=Math.random();
+ let delta=1, outcome='gillade';
+ if(roll<0.01){delta=-1;outcome='minskade';}
+ else if(roll<0.15){delta=2;outcome='gav två gilla-markeringar';}
+ else if(roll<0.45){outcome='flyttade knappen';}
+ state.likes[id]=Math.max(0,(state.likes[id]||0)+delta);
+ let grant=0;
+ if(delta>0){grant=randInt(1,3);state.moderatorLikes+=grant;}
+ if(outcome==='flyttade knappen'){
+   const zone=article.querySelector('.like-zone'); const dx=randInt(-42,42), dy=randInt(-20,20); zone.style.transform='translate('+dx+'px,'+dy+'px)'; zone.classList.add('moved'); setTimeout(()=>{zone.style.transform='';zone.classList.remove('moved')},700);
+ }
+ if(delta===2) floating(article,'+2','plus'); else if(delta===1) floating(article,'+1','plus'); else floating(article,'−1','minus');
+ if(grant){state.likes['0.06']=(state.likes['0.06']||0)+grant; floating(document.querySelector('.rule[data-id="0.06"]'),'+'+grant+' till 0.06','plus');}
+ const ownCount=article.querySelector('.like-count'); if(ownCount) ownCount.textContent=(state.likes[id]||0)+' gilla-markeringar';
+ const modCount=document.querySelector('.rule[data-id="0.06"] .like-count'); if(modCount) modCount.textContent=(state.likes['0.06']||0)+' gilla-markeringar';
+ addEvent(id+' · '+outcome+(grant?' · '+grant+' till 0.06':''));
+ updateStats();
+}
+function updateStats(){
+ let total=0; for(const [id,n] of Object.entries(state.likes)){if(id!=='0.06') total+=n}
+ document.getElementById('totalLikes').textContent=total;document.getElementById('side060').textContent=state.moderatorLikes;document.getElementById('spotlightCount').textContent=state.moderatorLikes;
+ const last=state.events[0]; document.getElementById('spotlightDelta').textContent=last&&last.text.includes('till 0.06')?last.text.split('·').pop().trim().replace(' till 0.06',''):'—';
+}
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));tab.classList.add('active');document.getElementById(tab.dataset.view==='rules'?'rulesView':tab.dataset.view==='spotlight'?'spotlightView':'activityView').classList.add('active');}));
+document.getElementById('reset').addEventListener('click',()=>{for(const k of Object.keys(state.likes))delete state.likes[k];state.moderatorLikes=0;state.events=[];render();addEvent('Gilla-markeringar återställda');});
+render();
+</script>
+</body>
+</html>
